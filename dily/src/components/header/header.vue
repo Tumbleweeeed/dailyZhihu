@@ -10,12 +10,15 @@
 					</g>
 				</svg>
 			</Col>
-			<Col class="icon" span="3"  offset="4">今日<br>新闻
-				<div class="bar"></div>
+			<Col 
+				class="icon" span="3"  offset="4"
+				@click.native="clickTab(0)"
+			>
+				今日<br>新闻
 			</Col>
-			<Col class="icon" span="3">热门<br>消息</Col>
-			<Col class="icon" span="3">栏目<br>总览</Col>
-			<Col class="icon" span="3">过往<br>新闻</Col>
+			<Col class="icon" span="3" @click.native="clickTab(1)">热门<br>消息</Col>
+			<Col class="icon" span="3" @click.native="clickTab(2)">栏目<br>总览</Col>
+			<Col class="icon" span="3" @click.native="clickTab(3)">过往<br>新闻</Col>
 		</Row>
 	</div>
 </template>
@@ -34,7 +37,10 @@ export default{
 		
 	},
 	methods: {
-	
+		clickTab (e) {
+			console.log(e)
+			this.$emit('changeTab', e);
+		}
 	}
 }
 </script>

@@ -1,13 +1,11 @@
 <template>
 	<div>
-		  <swiper :options="swiperOption">
+		  <swiper :options="swiperOption" ref="mySwiper">
 		    <swiper-slide 
 		    	v-for="(item, index) in swiperSlides" 
 		    	:key="index"
 		    >
-		    	<keep-alive>
-		    		<component :is="item.component"></component>
-		    	</keep-alive>
+		    	<component :is="item.component"></component>
 		    </swiper-slide>
 		  </swiper>
 	</div>
@@ -18,6 +16,7 @@
 	import PopNews from '@/components/popular/home'
 	import PopColumn from '@/components/column/PopColumn'
 	import PastNews from '@/components/pastNews/pastnews'
+
 	export default{
 		name:"SlideShow",
 		components:{
@@ -25,6 +24,9 @@
 			PopNews,
 			PopColumn,
 			PastNews
+		},
+		props:{
+			sendIndex:Number
 		},
 		data () {
 			return {
@@ -34,23 +36,26 @@
 					}
 				},
 				swiperSlides: [
-					{path:'/todaynews',component:TodayNews},
-					{path:'/popnews',component:PopNews},
-					{path:'/column',component:PopColumn},
-					{path:'/pastnews',component:PastNews}
+					{component:TodayNews},
+					{component:PopNews},
+					{component:PopColumn},
+					{component:PastNews}
 				]
 			}
 		},
 		computed: {
-			swiper() {  
-		      return this.$refs.mySwiper.swiper;  
-		    } 
+			swiper() {
+			    return this.$refs.mySwiper.swiper
+			}
+		},
+		watch: {
+			sendIndex(val){
+				console.log(this.$refs.mySwiper.swiper)
+				this.$refs.mySwiper.swiper.slideTo(val,100,false)
+			}
 		},
 		mounted () {
-			var mySwiper = swiper('.swiper-container',{
-				initialSlide: this.$route.path === '/todaynews' ? 0 : this.$route.path === '/popnews' ? 1 : this.$route.path === '/column' ? 2 : this.$route.path === '/pastnews' ? 3 : 0
-			})
-			console.log(mySwiper)
+			console.log('this is current swiper instance object', this.swiper)
 		}
 	}
 </script>
