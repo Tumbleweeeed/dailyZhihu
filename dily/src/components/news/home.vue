@@ -1,15 +1,25 @@
 <template>
-	<div>
+	<div class="wrapper">
 		<ul>
+			<li class='bar'>热点</li>
 			<router-link 
 				tag="li" v-for="(item,indx) of totalData.stories" 
 				:to="'detail/'+item.id"
 			>
 				<p>{{item.title}}</p>
-				{{item.id}}
 				<img :src="item.images" alt="">
+				<div class="br"></div>
 			</router-link>
-		</ul>		
+			<li class='bar'>今日份</li>
+			<router-link 
+				tag="li" v-for="(item,indx) of totalData.top_stories" 
+				:to="'detail/'+item.id"
+			>
+				<p>{{item.title}}</p>
+				<img :src="item.image" alt="">
+				<div class="br"></div>
+			</router-link>
+		</ul>
 	</div>
 </template>
 
@@ -24,11 +34,12 @@ export default{
 	},
 	methods: {
 		getData () {
-			axios.get("/4/news/latest")
+			axios.get("/api/4/news/latest")
 				.then(this.showMessage)
 		},
 		showMessage (res) {
 			this.totalData = res.data
+			console.log(this.totalData)
 		}
 	},
 	mounted () {
@@ -48,18 +59,34 @@ export default{
 </script>
 
 <style lang="stylus" scoped>
-	div
+	.wrapper
 		background #fff
 		height 100%
-		background #444
-		color white
+		color #333
+		margin .06rem
+	.bar
+		width 98%
+		background #0084ff
+		border-radius .1rem
+		color #fff
+		height .5rem
+		line-height .15rem
+		padding-left .5rem
 	li
 		overflow hidden
+		padding .2rem
+		line-height .4rem
 		p
 			margin-right 1.8rem
 			height 1rem
+			padding-top .2rem
 		img
 			width 1.5rem
 			margin-top -1rem
 			float right
+		.br
+			width 100%
+			height .02rem
+			background #0084ff
+			margin-top .7rem
 </style>

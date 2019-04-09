@@ -35,7 +35,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" scoped>
   .wrapper
-    position fixed
     width 100%
     height 100%
     top 0
