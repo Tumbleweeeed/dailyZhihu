@@ -1,4 +1,6 @@
 export default {
 	overImg:'',
-	title:''
+	title:'',
+	date:'',
+	column:''
 }

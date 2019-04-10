@@ -39,7 +39,6 @@ export default{
 		},
 		showMessage (res) {
 			this.totalData = res.data
-			console.log(this.totalData)
 		}
 	},
 	mounted () {

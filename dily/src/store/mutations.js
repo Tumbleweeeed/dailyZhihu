@@ -4,5 +4,11 @@ export default {
 	},
 	sendTitle (state,txt) {
 		state.title = txt
+	},
+	sendDate (state,date) {
+		state.date = date
+	},
+	sendColumn (state,column) {
+		state.column = column
 	}
 }

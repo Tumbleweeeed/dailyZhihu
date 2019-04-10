@@ -4,5 +4,11 @@ export default {
 	},
 	title (ctx,txt) {
 		ctx.commit('sendTitle',txt)
+	},
+	date (ctx,date) {
+		ctx.commit('sendDate',date)
+	},
+	column (ctx,column) {
+		ctx.commit('sendColumn',column)
 	}
 }

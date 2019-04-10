@@ -30,14 +30,12 @@ export default {
 		},
 		showMessage (res) {
 			this.detailData = res
-			console.log(this.detailData.data.title)
 			this.$store.dispatch('overImg',this.detailData.data.image)
 			this.$store.dispatch('title',this.detailData.data.title)
 		}
 	},
 	mounted () {
 		this.getData()
-		console.log(this.$store.state.image)
 	}
 }
 </script>
