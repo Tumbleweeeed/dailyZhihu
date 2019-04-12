@@ -41,6 +41,8 @@ export default {
 </script>
 
 <style lang="stylus">
+img
+	width 100%
 .content-image
 	width 100%
 .url

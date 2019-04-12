@@ -33,7 +33,9 @@
 				swiperOption: {
 					pagination: {
 						el: '.swiper-pagination'
-					}
+					},
+					autoHeight:true,
+					lazy:true
 				},
 				swiperSlides: [
 					{component:TodayNews},
@@ -46,16 +48,27 @@
 		computed: {
 			swiper() {
 			    return this.$refs.mySwiper.swiper
+			},
+			currentIndex () {
+				return this.$refs.mySwiper.swiper.activeIndex
 			}
 		},
 		watch: {
-			sendIndex(val){
-				console.log(this.$refs.mySwiper.swiper)
-				this.$refs.mySwiper.swiper.slideTo(val,100,false)
+			sendIndex(newV,oldV){
+				this.$refs.mySwiper.swiper.slideTo(newV,100,false)
+				console.log(this.currentIndex)
+				console.log(this.sendIndex)
+			},
+			currentIndex(newV,oldV){
+				this.sendIndex = newV
 			}
 		},
 		mounted () {
-			console.log('this is current swiper instance object', this.swiper)
+			this.$refs.mySwiper.swiper.update()
 		}
 	}
 </script>
+
+<style lang="stylus" scoped>
+
+</style>

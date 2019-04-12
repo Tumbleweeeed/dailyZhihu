@@ -11,7 +11,7 @@
 				</svg>
 			</Col>
 			<Col 
-				class="icon" span="3"  offset="4"
+				class="icon activebottom" span="3"  offset="4"
 				@click.native="clickTab(0)"
 			>
 				今日<br>新闻

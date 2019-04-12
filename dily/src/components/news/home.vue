@@ -1,15 +1,7 @@
 <template>
 	<div class="wrapper">
+		<slide-img :sendTop="totalData.top_stories"></slide-img>
 		<ul>
-			<li class='bar'>热点</li>
-			<router-link 
-				tag="li" v-for="(item,indx) of totalData.stories" 
-				:to="'detail/'+item.id"
-			>
-				<p>{{item.title}}</p>
-				<img :src="item.images" alt="">
-				<div class="br"></div>
-			</router-link>
 			<li class='bar'>今日份</li>
 			<router-link 
 				tag="li" v-for="(item,indx) of totalData.top_stories" 
@@ -25,12 +17,16 @@
 
 <script>
 import axios from 'axios'
+import SlideImg from './slideImg'
 export default{
 	name:"TodayNews",
 	data () {
 		return{
 			totalData:''
 		}
+	},
+	components:{
+		SlideImg
 	},
 	methods: {
 		getData () {
@@ -58,10 +54,12 @@ export default{
 </script>
 
 <style lang="stylus" scoped>
+	ul
+		margin-top .05rem
 	.wrapper
 		background #fff
-		height 100%
 		color #333
+		height 16rem
 		margin .06rem
 	.bar
 		width 98%

@@ -1,13 +1,17 @@
 <template>
 	<div class="contain">
-		<router-link to="/">
-		</router-link>
+		<div class="icon" @click="back"></div>
 	</div>
 </template>
 
 <script>
 export default {
-	name:"BottomBar"
+	name:"BottomBar",
+	methods: {
+		back () {
+			this.$router.go(-1)
+		}
+	}
 }
 </script>
 

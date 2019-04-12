@@ -1,14 +1,13 @@
 <template>
   <div class="wrapper">
     <ul>
-      <li class='bar'>今日份</li>
+      <li class='bar'>知乎专栏</li>
       <router-link 
         tag="li" v-for="(item,indx) of totalData" 
         :to="'column/'+item.id"
         @click.native="sendColumn(item.id)"
       >
         <p>{{item.name}}</p>
-        <p>{{item.description}}</p>
         <img :src="item.thumbnail" alt="">
         <div class="br"></div>
       </router-link>
@@ -48,7 +47,6 @@ export default{
 <style lang="stylus" scoped>
   .wrapper
     background #fff
-    height 100%
     color #333
     margin .06rem
   .bar

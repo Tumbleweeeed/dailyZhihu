@@ -7,8 +7,6 @@
 
 <script>
 import HomeHeader from "./header/header"
-import TodayNews from "./news/home"
-import PopNews from "./popular/home"
 import SlideShow from "./header/slide"
 export default {
   name: 'HelloWorld',
@@ -16,7 +14,7 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       list:[],
-      indexFont:0 
+      indexFont:''
     }
   },
   components: {

@@ -5,7 +5,6 @@
 	            type="date" 
 	            placeholder="Select date" 
 	            style="width: 200px"
-	            confirm
 	            :options="option1"
 	            @on-change="dateChange"
 	            size="small"
@@ -43,7 +42,7 @@ export default {
 
 <style lang="stylus" scoped>
 	.ivu-row
-		position fixed
+		position absolute
 		left 50%
 		transform translateX(-50%)
 </style>

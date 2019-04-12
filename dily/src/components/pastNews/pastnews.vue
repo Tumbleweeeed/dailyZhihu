@@ -56,7 +56,6 @@ export default{
 <style lang="stylus" scoped>
 	.wrapper
 		background #fff
-		height 100%
 		color #333
 		margin .06rem
 	.bar
