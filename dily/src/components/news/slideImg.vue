@@ -10,6 +10,7 @@
 		    		<img :src="item.image" alt="">
 		    	</router-link>
 		    </swiper-slide>
+		    <div class="swiper-pagination"  slot="pagination"></div>
 		  </swiper>
 	</div>
 </template>
@@ -26,11 +27,11 @@ export default {
 				pagination: {
 						el: '.swiper-pagination'
 				},
+				loop : true,
 				autoplay: {
 					delay:2000,
 					disableOnInteraction: false,
-				},
-				loop : true
+				}
 			}
 		}
 	},
@@ -67,4 +68,8 @@ export default {
 			color #fff
 			text-shadow 1px 1px 2px #535353
 			line-height .5rem
+	.swiper-pagination-bullets
+		margin-left 2rem
+		bottom 0
+			
 </style>

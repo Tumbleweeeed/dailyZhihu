@@ -10,5 +10,8 @@ export default {
 	},
 	sendColumn (state,column) {
 		state.column = column
+	},
+	sendIndex (state,currentIndex) {
+		state.currentIndex = currentIndex
 	}
 }

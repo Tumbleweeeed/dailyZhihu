@@ -2,5 +2,6 @@ export default {
 	overImg:'',
 	title:'',
 	date:'',
-	column:''
+	column:'',
+	currentIndex:'0'
 }

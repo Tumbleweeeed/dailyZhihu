@@ -25,9 +25,6 @@
 			PopColumn,
 			PastNews
 		},
-		props:{
-			sendIndex:Number
-		},
 		data () {
 			return {
 				swiperOption: {
@@ -35,7 +32,12 @@
 						el: '.swiper-pagination'
 					},
 					autoHeight:true,
-					lazy:true
+					lazy:true,
+					on : {
+						slideChange: this.sendIndex
+					},
+					observer: true,
+					observeParents: true
 				},
 				swiperSlides: [
 					{component:TodayNews},
@@ -49,22 +51,23 @@
 			swiper() {
 			    return this.$refs.mySwiper.swiper
 			},
-			currentIndex () {
-				return this.$refs.mySwiper.swiper.activeIndex
+			index () {
+				return this.$store.state.currentIndex
 			}
 		},
 		watch: {
-			sendIndex(newV,oldV){
+			index(newV,oldV) {
 				this.$refs.mySwiper.swiper.slideTo(newV,100,false)
-				console.log(this.currentIndex)
-				console.log(this.sendIndex)
-			},
-			currentIndex(newV,oldV){
-				this.sendIndex = newV
 			}
 		},
 		mounted () {
-			this.$refs.mySwiper.swiper.update()
+			// this.$refs.mySwiper.swiper.update()
+			this.$refs.mySwiper.swiper.slideTo(this.$store.state.currentIndex,100,false)
+		},
+		methods: {
+			sendIndex () {
+				this.$store.dispatch('currentindex',this.$refs.mySwiper.swiper.realIndex)
+			}
 		}
 	}
 </script>

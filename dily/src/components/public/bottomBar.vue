@@ -1,6 +1,8 @@
 <template>
 	<div class="contain">
-		<div class="icon" @click="back"></div>
+		<div class="icon" @click="back">
+			<Icon type="ios-arrow-back" size="30" color="#fff" />
+		</div>
 	</div>
 </template>
 
@@ -26,5 +28,5 @@ export default {
 		.icon
 			width .5rem
 			height .5rem
-			background #fff
+			margin .05rem .1rem
 </style>

@@ -10,5 +10,8 @@ export default {
 	},
 	column (ctx,column) {
 		ctx.commit('sendColumn',column)
+	},
+	currentindex (ctx,currentIndex) {
+		ctx.commit('sendIndex',currentIndex)
 	}
 }

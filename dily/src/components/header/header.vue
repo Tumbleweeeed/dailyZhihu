@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<Row>
-			<Col class="logo" span="8">
+			<Col class="logo" span="12">
 				<svg viewBox="0 0 200 91" class="Icon ZhihuLogo ZhihuLogo--blue Icon--logo" width="64" height="30" aria-hidden="true" style="height: .5rem;">
 					<title></title>
 					<g>
@@ -11,14 +11,14 @@
 				</svg>
 			</Col>
 			<Col 
-				class="icon activebottom" span="3"  offset="4"
-				@click.native="clickTab(0)"
+				class="icon" span="3" 
+				@click.native="clickTab(key)"
+				v-for="(item,key) in list"
+				:class="{bar:key==index}"
+				v-html="item"
 			>
-				今日<br>新闻
+				{{item}}
 			</Col>
-			<Col class="icon" span="3" @click.native="clickTab(1)">热门<br>消息</Col>
-			<Col class="icon" span="3" @click.native="clickTab(2)">栏目<br>总览</Col>
-			<Col class="icon" span="3" @click.native="clickTab(3)">过往<br>新闻</Col>
 		</Row>
 	</div>
 </template>
@@ -28,6 +28,12 @@ export default{
 	name: 'HomeHeader',
 	data () {
 		return{
+			list:{
+				'0':'<p>今日<br/>新闻</p>',
+				'1':'<p>热门<br/>消息</p>',
+				'2':'<p>知乎<br/>专栏</p>',
+				'3':'<p>过往<br/>新闻</p>',
+			}
 		}
 	},
 	watch: {
@@ -38,8 +44,16 @@ export default{
 	},
 	methods: {
 		clickTab (e) {
-			console.log(e)
-			this.$emit('changeTab', e);
+			this.$store.dispatch('currentindex',e)
+			console.log(this.$store.state.currentIndex)
+		},
+		changeB (index) {
+			console.log(index)
+		}
+	},
+	computed: {
+		index () {
+			return this.$store.state.currentIndex
 		}
 	}
 }
@@ -58,10 +72,10 @@ export default{
 			margin-left .2rem
 	.icon
 		color #444
-		font-size 12px
-		.bar
-			margin-top .05rem
-			width .5rem
-			height .04rem
-			background #0084ff
+		font-size .26rem
+		text-align center
+		
+	.bar
+		padding-bottom .1rem
+		border-bottom 2px solid #0084ff
 </style>

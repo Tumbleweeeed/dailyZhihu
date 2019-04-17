@@ -1,7 +1,7 @@
 <template>
 <div class="wrapper">
-  <home-header @changeTab="changeTab"></home-header>
-  <slide-show :sendIndex="indexFont"></slide-show>
+  <home-header></home-header>
+  <slide-show></slide-show>
 </div>
 </template>
 
@@ -13,8 +13,7 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      list:[],
-      indexFont:''
+      list:[]
     }
   },
   components: {
@@ -22,10 +21,7 @@ export default {
     SlideShow
   },
   methods: {
-    changeTab (value) {
-      console.log(value)
-      this.indexFont = value
-    }
+
   }
 }
 </script>
