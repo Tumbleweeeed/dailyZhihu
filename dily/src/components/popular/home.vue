@@ -1,7 +1,7 @@
 <template>
 	<div class="wrapper">
 		<ul>
-			<li class='bar'>今日份</li>
+			<li class='bar'>热门消息</li>
 			<router-link 
 				tag="li" v-for="(item,indx) of totalData" 
 				:to="'detail/'+item.news_id"

@@ -2,7 +2,7 @@
 	<div class="wrapper">
 		<bottom-bar></bottom-bar>
 		<ul>
-			<li class='bar'>今日份</li>
+			<li class='bar'>专栏内容</li>
 			<router-link 
 				tag="li" v-for="(item,indx) of totalData.stories" 
 				:to="'/detail/'+item.id"
